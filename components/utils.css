@@ -1,0 +1,71 @@
+/* this are the classes for only util components */
+/* 
+import this utility stylesheet at the root level
+No component is importing the stylesheet so you have to do it manually
+*/
+
+:root {
+  --backdrop: #000000c0;
+}
+
+/* ReqButton  */
+.req-button.loading {
+  background-color: white;
+  color: #777;
+  border: 1px solid #ddd;
+}
+.req-button:disabled {
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+/* this is the default class for the RadioButtons component */
+/* just apply the class default-radios to apply the style */
+.default-radios .radio-contain {
+  /* display: flex; */
+  /* align-items: center; */
+  position: relative;
+}
+.default-radios .radio-contain .ghost-radio {
+  width: 12px;
+  height: 12px;
+  border: 1.4px solid var(--color-primary);
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.default-radios .radio-contain input[type="radio"] {
+  position: relative;
+  z-index: 10;
+  opacity: 0;
+  margin-right: 3px;
+}
+
+.default-radios .radio-contain input[type="radio"]:checked + .ghost-radio {
+  background-color: var(--color-primary);
+  border-color: #00000000;
+}
+
+/* model classes */
+/* model uses portals so pbody should have id >> model */
+#model .backdrop {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--backdrop);
+  z-index: 100;
+  backdrop-filter: blur(2.5px);
+}
+#model .backdrop:hover {
+  cursor: pointer;
+}
+#model .model-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 110;
+}
